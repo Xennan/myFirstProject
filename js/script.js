@@ -1,28 +1,21 @@
-st = 5;
-while (st <= 10) {
-    console.log(st++);
-}
+const arr = [3, 5, 8, 16, 20, 23, 50];
+const result = [];
 
-for (let i = 20; i > 12; i--) {
-    console.log(i);
+// Пишем решение вот тут
+const length = arr.length;
+for (let i = 0; i < length; i++) {
+    result[i] = arr[i];
 }
+console.log(result);
 
-for (let i = 2; i <= 10; i++) {
-    if (i % 2 == 0) {
-        console.log(i);
+const data = [5, 10, 'Shopping', 20, 'Homework'];
+const length2 = data.length;
+for (let i = 0; i < length2; i++) {
+    if (typeof i === "number") {
+        data[i] *= 2;
+    } else if (typeof i === "string") {
+        data[i] = data[i] + "-done";
     }
 }
 
-let h = 2;
-while (h < 16) {
-    if (h % 2 !== 0) {
-        console.log(h);
-    }
-    h++;
-}
-
-const arrayOfNumbers = [];
-    for (let i = 0; i <= 5; i++) {
-        arrayOfNumbers[i] = i + 5;
-    }
-console.log(arrayOfNumbers);
+console.log(data);
