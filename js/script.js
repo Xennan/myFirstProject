@@ -1,21 +1,14 @@
-const arr = [3, 5, 8, 16, 20, 23, 50];
-const result = [];
-
-// Пишем решение вот тут
-const length = arr.length;
-for (let i = 0; i < length; i++) {
-    result[i] = arr[i];
+const lines = 5;
+let result = '';
+// Проверяется именно переменная result, формируйте строку в ней
+const length1 = 12;
+let prob = "        ";
+for (i = 1; i < length1; i += 2) {
+    result += prob;
+    for (j = 0; j <= i; j++) {
+        result += "*";
+    }
+    prob.slice(1);
+    result = "\n";
 }
 console.log(result);
-
-const data = [5, 10, 'Shopping', 20, 'Homework'];
-const length2 = data.length;
-for (let i = 0; i < length2; i++) {
-    if (typeof i === "number") {
-        data[i] *= 2;
-    } else if (typeof i === "string") {
-        data[i] = data[i] + "-done";
-    }
-}
-
-console.log(data);
