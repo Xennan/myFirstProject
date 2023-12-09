@@ -1,28 +1,28 @@
-// Место для первой задачи
-function sayHello(userName) {
-    return `Привет, ${userName}!`
-}
+"use strict";
 
-// Место для второй задачи
-function returnNeighboringNumbers(number) {
-    return [number-1,number,number+1]
-}
+const str = "test22";
+const arr = [1,2,8];
 
-// Место для третьей задачи
-function getMathResult(a,b) {
-    let c = a;
-    let d = '';
-    if (b <= 0 || typeof b !== "number") {
-        return a
-    }
-    for (let i = 0; i < b; i++) {
-        d += `${c}---`;
-        c += a;
-        if (i === b - 2) {
-            d += c;
-            return d
-        }
-    }
-}
+// console.log(str[2] = 'd');
 
-//лень всё переносить, так что просто скопировал с сайта
+console.log(str.toUpperCase());
+console.log(str);
+
+const fruit = "Some fruit";
+
+console.log(fruit.indexOf("fruit"));
+
+const logg = "Hello world";
+
+// console.log(logg.slice(-5, -1));
+
+// console.log(logg.substring(6, 11));
+
+console.log(logg.substr(6, 5));
+
+const num = 12.2;
+console.log(Math.round(num));
+
+const test = "12.2px";
+console.log(parseInt(test));
+console.log(parseFloat(test));
