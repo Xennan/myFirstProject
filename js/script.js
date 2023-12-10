@@ -54,14 +54,6 @@ function detectPersonalLevel() {
 
 detectPersonalLevel();
 
-function showMyDB() {
-    if (personalMovieDB.privat === true) {
-        console.log(personalMovieDB);
-    }
-}
-
-showMyDB();
-
 function writeYourGenres() {
     for (let i = 1; i <= 3; i++) {
         personalMovieDB.genres[i-1] = prompt(`Ваш любимый жанр под номером ${i}`);
@@ -71,3 +63,23 @@ function writeYourGenres() {
 
 writeYourGenres();
 
+function showMyDB() {
+    let personalDesire = prompt("Вывести весь объект? ('Да' или 'Нет')");
+
+    for (let i = 0; i < 1; i++) {
+        if (personalDesire === "Да") {
+            personalMovieDB.privat = true;
+        } else if (personalDesire === "Нет") {
+            personalMovieDB.privat = false;
+        } else {
+            i--;
+            personalDesire = prompt("Вывести весь объект? ('Да' или 'Нет')");
+        }
+    }
+
+    if (personalMovieDB.privat === true) {
+        console.log(personalMovieDB);
+    }
+}
+
+showMyDB();
