@@ -1,85 +1,27 @@
 "use strict";
 
-let numberOfFilms;
-
-function start() {
-    numberOfFilms = +prompt("Сколько фильмов вы посмотрели?");
-
-    while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = +prompt("Сколько фильмов вы посмотрели?", '');
-    };
-}
-
-start();
-
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: true
-};
-
-
-function rememberMyFilms() {
-    for (let i = 0; i < 2; i++) {
-        const a = prompt("Какой ваш последний просмотренный фильм? "),
-              b = +prompt("Сколько баллов ему поставите? ");
-    
-        if (a != null && b != null && a != "" && b != "" && a.length < 50) {
-            personalMovieDB.movies[a] = b;
-            console.log("done");
-        } else {
-            console.log("Error");
-            i--;
-        }
-    
-    }
-}
-
-rememberMyFilms();
-
-
-function detectPersonalLevel() {
-    if (personalMovieDB.count < 10 && personalMovieDB.count >= 0) {
-        console.log("Маловато");
-    } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
-        console.log("Вы прямо таки знаток!");
-    } else if (personalMovieDB.count > 30) {
-        console.log("Вы киноман");
+function calculateVolumeAndArea(ribLength) {
+    if (ribLength !== "" && ribLength > 0 && typeof ribLength !== "string" && ribLength % 1 === 0) {
+        let scope = ribLength * ribLength * ribLength;
+        let side = (ribLength * ribLength) * 6;
+        console.log(`Объем куба: ${scope}, площадь всей поверхности: ${side}`);
     } else {
-        console.log("Error");
+        console.log("При вычислении произошла ошибка");
     }
 }
 
-detectPersonalLevel();
+calculateVolumeAndArea(15);
 
-function writeYourGenres() {
-    for (let i = 1; i <= 3; i++) {
-        personalMovieDB.genres[i-1] = prompt(`Ваш любимый жанр под номером ${i}`);
-    }
+// console.log(8 / 4);
 
-}
-
-writeYourGenres();
-
-function showMyDB() {
-    let personalDesire = prompt("Вывести весь объект? ('Да' или 'Нет')");
-
-    for (let i = 0; i < 1; i++) {
-        if (personalDesire === "Да") {
-            personalMovieDB.privat = true;
-        } else if (personalDesire === "Нет") {
-            personalMovieDB.privat = false;
-        } else {
-            i--;
-            personalDesire = prompt("Вывести весь объект? ('Да' или 'Нет')");
-        }
-    }
-
-    if (personalMovieDB.privat === true) {
-        console.log(personalMovieDB);
+function getCoupeNumber(userCompartment) {
+    if (typeof userCompartment === "string" || Number.isInteger(userCompartment) || userCompartment < 0) {
+        return "Ошибка. Проверьте правильность введенного номера места";
+    } else if (userCompartment <= 0 || userCompartment > 36) {
+        return "Таких мест в вагоне не существует";
+    } else {
+        return Math.ceil(userCompartment / 4);
     }
 }
 
-showMyDB();
+console.log(getCoupeNumber(2));
