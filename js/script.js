@@ -1,27 +1,46 @@
 "use strict";
 
-function calculateVolumeAndArea(ribLength) {
-    if (ribLength !== "" && ribLength > 0 && typeof ribLength !== "string" && ribLength % 1 === 0) {
-        let scope = ribLength * ribLength * ribLength;
-        let side = (ribLength * ribLength) * 6;
-        console.log(`Объем куба: ${scope}, площадь всей поверхности: ${side}`);
-    } else {
-        console.log("При вычислении произошла ошибка");
+function getTimeFromMinutes(minutes) {
+    if (typeof (minutes) === "string" || minutes < 0 || !Number.isInteger(minutes) || minutes > 600) {
+        return "Ошибка, проверьте данные";
+    } else  if (minutes <= 600) {
+        let count = 0;
+        while (minutes > 60) {
+            count += 1;
+            minutes -= 60;
+        }
+        
+        if (minutes === 60) {
+            count += 1;
+            minutes -= 60;
+        }
+
+        if (count === 1) {
+            return  `Это ${count} час и ${minutes} минут`;
+        } else if (count === 2 || count === 3 || count === 4) {
+            return  `Это ${count} часа и ${minutes} минут`;
+        } else if (count === 5 || count === 6 || count === 7 || count === 8 || count === 9 || count === 10 || count === 0) {
+            return  `Это ${count} часов и ${minutes} минут`;
+        }
+
+        
     }
 }
 
-calculateVolumeAndArea(15);
+console.log(getTimeFromMinutes(180));
+console.log(getTimeFromMinutes(40));
+console.log(getTimeFromMinutes(500));
+console.log(getTimeFromMinutes(100));
 
-// console.log(8 / 4);
-
-function getCoupeNumber(userCompartment) {
-    if (typeof userCompartment === "string" || Number.isInteger(userCompartment) || userCompartment < 0) {
-        return "Ошибка. Проверьте правильность введенного номера места";
-    } else if (userCompartment <= 0 || userCompartment > 36) {
-        return "Таких мест в вагоне не существует";
+function findMaxNumber(a, b, c, d) {
+    if (typeof (a) !== "number" ||
+        typeof (b) !== "number" ||
+        typeof (c) !== "number" ||
+        typeof (d) !== "number") {
+        return 0;
     } else {
-        return Math.ceil(userCompartment / 4);
+        return Math.max(a, b, c, d);
     }
 }
 
-console.log(getCoupeNumber(2));
+console.log(findMaxNumber(1,7,6,0));
