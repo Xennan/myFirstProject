@@ -1,41 +1,34 @@
 "use strict";
-// НИ ОДНО РЕШЕНИЕ НЕ МОЁ, Я НИХРЕНИЩЕ НЕ ПОНЯЛ
 
-const personalPlanPeter = {
-    name: "Peter",
-    age: "29",
-    skills: {
-        languages: ['ru', 'eng'],
-        programmingLangs: {
-            js: '20%',
-            php: '10%'
-        },
-        exp: '1 month'
-    },
-    showAgeAndLangs: function(plan) {
-        let {age} = plan;
-        let {languages} = plan.skills;
-        let str = `Мне ${age} и я владею языками: `;
-        
-        languages.forEach(function(lang) {
-            str += `${lang.toUpperCase()} `;
-        });
-        return str;
-    }
-};
+const family = ['Peter', 'Ann', 'Alex', 'Linda'];
 
-function showExperience(plan) {
-    const d = plan.skills.exp;
-    return d;
-}
-
-function showProgrammingLangs(plan) {
-    let str = '';
-    const {programmingLangs} = plan.skills;
-    
-    for (let key in programmingLangs) {
-        str += `Язык ${key} изучен на ${programmingLangs[key]}\n`;
-        
+function showFamily(arr) {
+    let str = `Семья состоит из:`;
+    if (arr.length === 0) {
+        return 'Семья пуста';
+    } else {
+        for (let i in arr) {
+            str += ` ${arr[i]}`;
+        }
     }
     return str;
 }
+const b = showFamily(family);
+console.log(b);
+
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+function standardizeStrings(arr) {
+    arr.forEach(city => console.log(city.toLowerCase()))
+}
+
+standardizeStrings(favoriteCities);
+
+const a = ['a','s','d','f','g','h','j'];
+
+console.log(a.length);
+console.log(a[6]);
+
+const array1 = ['a', 'b', 'c'];
+
+array1.forEach((element) => console.log(element));
