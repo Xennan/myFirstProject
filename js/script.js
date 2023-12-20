@@ -1,34 +1,61 @@
 "use strict";
 
-const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+const someString = 'This is some strange string';
 
-function showFamily(arr) {
-    let str = `Семья состоит из:`;
-    if (arr.length === 0) {
-        return 'Семья пуста';
+function reverse(str) {
+    let string = '';
+    if (typeof(str) !== "string") {
+        return 'Ошибка!';
     } else {
-        for (let i in arr) {
-            str += ` ${arr[i]}`;
+    for (let i = str.length - 1; i >= 0; i--) {
+        string += str[i];
+    }
+    return string;    
+    }
+}
+//решил, минут 20 понадобилось
+
+const d = reverse(someString);
+console.log(d);
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+// function availableCurr(arr, missingCurr) {
+//     let str = '';
+//     if (arr.length === 0) {
+//         return 'Нет доступных валют';
+//     } else if (missingCurr in arr) {
+//         str += 'Доступные валюты:\n';
+//         arr = arr.filter((tae) => tae !== missingCurr)
+//         arr.forEach((el) => str += `${el}\n`);
+//         return str;
+//     } else {
+//         str += 'Доступные валюты:\n';
+//         arr.forEach((el) => str += `${el}\n`);
+//         return str;
+//     }
+// }
+
+//мой способ но я не понял как убрать перенос в конце, и вообще не ясно почему и где было допущена логическая ошибка
+
+let s = availableCurr(additionalCurrencies);
+console.log(s);
+
+function availableCurr(arr, missingCurr) {
+    let str = '';
+    if (arr.length === 0) {
+        return 'Нет доступных валют';
+    } else {
+        str += "Доступные валюты:\n";
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === missingCurr) {
+                continue;
+            }
+            str += `${arr[i]}\n`;
         }
     }
     return str;
 }
-const b = showFamily(family);
-console.log(b);
-
-const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
-
-function standardizeStrings(arr) {
-    arr.forEach(city => console.log(city.toLowerCase()))
-}
-
-standardizeStrings(favoriteCities);
-
-const a = ['a','s','d','f','g','h','j'];
-
-console.log(a.length);
-console.log(a[6]);
-
-const array1 = ['a', 'b', 'c'];
-
-array1.forEach((element) => console.log(element));
+//с божей помощью и подсматриванием в решение наконец решил, про проверку по обычному циклу и continue не додумался
+// даже после нескольких проверок пришлось быстренько доделывать, но я смог, неплохая практика по моему
