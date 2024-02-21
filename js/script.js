@@ -1,42 +1,53 @@
-const shoppingMallData = {
-    shops: [
-        {
-            width: 10,
-            length: 5
-        },
-        {
-            width: 15,
-            length: 7
-        },
-        {
-            width: 20,
-            length: 5
-        },
-        {
-            width: 8,
-            length: 10
-        }
-    ],
-    height: 5,
-    moneyPer1m3: 30,
-    budget: 50000
-};
+"use strict";
 
-function isBudgetEnough(data) {
-    let square = 0;
-    let volume = 0;
+//To string
 
-    data.shops.forEach((item, index) => {
-        square += item.length * item.width;
-    });
-    
-    volume = square * data.height;
-    
-    if (data.budget - (data.moneyPer1m3 * volume) >= 0) {
-        return(`Бюджета достаточно`);
-    } else {
-        return(`Бюджета недостаточно`);
-    }
+// 1)
+console.log(typeof(String(null)));
+
+// 2)
+console.log(typeof(5 + ''));
+
+const num = 5;
+
+console.log("https://vk.com/catalog/" + num);
+
+const frontSize = 26 + 'px';
+
+//To number
+
+// 1)
+console.log(typeof(Number('32')));
+
+// 2)
+console.log(typeof(+'5'));
+
+// 3)
+console.log(typeof(parseInt("15px", 10)));
+
+
+let answ = +prompt("Hello", "");
+
+// To boolean
+
+// False...
+// 0, "", null, undefined, NaN
+
+// 1)
+let switcher = null;
+
+if (switcher) {
+    console.log("Working");
 }
 
-isBudgetEnough();
+switcher = 1;
+
+if (switcher) {
+    console.log("Working");
+}
+
+// 2)
+console.log(typeof(Boolean('32')));
+
+// 3)
+console.log(typeof(!!"44444"));
