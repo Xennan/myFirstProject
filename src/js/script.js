@@ -1,35 +1,57 @@
-"use strict";
+'use strict';
 
+// function showThis(a, b) {
+//     console.log(this);
+//     function sum() {
+//         console.log(this);
+//         return a + b;
+//     }
 
-function amountOfPages(summary){
-    let minus = 1,
-        pages = 0,
-        def = 10;
-    
-    while (summary > 0) {
-        if (pages !== def-1) {    
-            summary -= minus;
-            pages++;
-        } else {
-            def *= 10;
-            minus++;
-            pages++;
-        }
-    }
-    return pages;
+//     console.log(sum());
+// }
+// showThis(4, 5);
+
+// 1) с "use strict"; значиние будет undefined, но если его не будет то значением станет объект window
+
+// const obj = {
+//     a: 20,
+//     b: 15,
+//     sum: function() {
+//         function shout() {
+//             console.log(this);
+//         }
+//         shout();
+//     }
+// };
+// obj.sum();
+
+// 2) Контекст у методов объекта это сам объект
+
+// function User(name, id) {
+//     this.name = name;
+//     this.id = id;
+//     this.human = human;
+// }
+// let ivan = new User('Ivan', 23);
+
+// 3) this в конструкторах и классах - это новый экземпляр объекта
+
+function sayName(surname) {
+    console.log(this);
+    console.log(this.name + surname);
 }
-console.log(amountOfPages(1095));
 
+const user = {
+    name: 'John'
+};
 
+sayName.call(user, 'Smith');
+sayName.apply(user, ['Smith']);
 
-
-function amountOfPages2(summary){
-    let res = '';
-    for (let i = 1; i<=summary; i++) {
-        res += i;
-    }
-    res = res.length;
-    return res;
+function count(num) {
+    return this*num;
 }
 
-console.log(amountOfPages2(401));
+const double = count.bind(2);
+console.log(double(3));
+console.log(double(333));
